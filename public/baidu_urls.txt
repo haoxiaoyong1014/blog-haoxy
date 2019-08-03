@@ -1,2 +1,0 @@
-https://www.haoxiaoyong.cn/2019/08/03/2019/ZooKeeper分布式专题(一) -- zookeeper安装以及介绍/
-https://www.haoxiaoyong.cn/2019/08/03/2019/2019-08-01-enable/
