@@ -112,7 +112,7 @@ widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts
 
 links:
   - title: site-name1
-    url: http://www.example1.com/
+    url: https://www.despairyoke.com/
   - title: site-name2
     url: http://www.example2.com/
   - title: site-name3

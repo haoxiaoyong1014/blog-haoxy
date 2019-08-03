@@ -4,9 +4,11 @@ title: ZooKeeper分布式专题(一) -- zookeeper安装以及介绍
 category: ZooKeeper分布式专题
 tags: zookeeper
 toc: true
+date: 2019-07-16
 ---
 [ZooKeeper分布式专题与Dubbo微服务入门](https://github.com/haoxiaoyong1014/zookeeperGuide)
 
+#### zookeeper安装以及介绍
 
 #### 概述
 
