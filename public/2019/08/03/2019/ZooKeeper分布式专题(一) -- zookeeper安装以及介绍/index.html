@@ -1,0 +1,154 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="待我代码编成,娶你为妻可好!"><title> | 郝小永</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1305925_pizidduw6v9.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">郝小永</h1><a id="logo" href="/.">郝小永</a><p class="description">郝小永的个人博客</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/book/"><i class="fa fa-book"> 开源书籍</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-meta">Aug 3, 2019<script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="post-content"><p><a href="https://github.com/haoxiaoyong1014/zookeeperGuide" target="_blank" rel="noopener">ZooKeeper分布式专题与Dubbo微服务入门</a></p>
+<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>zookeeper实际上是yahoo开发的，用于分布式中一致性处理的框架。最初其作为研发Hadoop时的副产品。由于分布式系统中一致性处理较为困难，其他的分布式系统没有必要 费劲重复造轮子，故随后的分布式系统中大量应用了zookeeper，以至于zookeeper成为了各种分布式系统的基础组件，其地位之重要，可想而知。著名的hadoop，kafka，dubbo 都是基于zookeeper而构建。</p>
+<h4 id="zookeeper安装"><a href="#zookeeper安装" class="headerlink" title="zookeeper安装"></a>zookeeper安装</h4><pre><code>*  **下载**</code></pre><blockquote>
+<p>稳定版：<br><a href="http://mirror.bit.edu.cn/apache/zookeeper/stable/" target="_blank" rel="noopener">http://mirror.bit.edu.cn/apache/zookeeper/stable/</a></p>
+</blockquote>
+<ul>
+<li><p>提取tar文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd /opt/</span><br><span class="line">tar -zxf  zookeeper-3.4.12.tar.gz</span><br><span class="line">cd zookeeper-3.4.12</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>创建data文件夹 用于存储数据文件</p>
+<p><code>mkdir data</code></p>
+</li>
+<li><p>创建logs文件夹 用于存储日志</p>
+<p><code>mkdir logs</code></p>
+</li>
+</ul>
+</li>
+<li><p><strong>创建配置文件</strong></p>
+<p>使用命令 vi conf/zoo.cfg 创建配置文件并打开，ps (其实目录conf 下有默认的配置文件，但是注释太多，英文一大堆，太乱,所有还不如自己新建一个配置文件,复制一份zoo_sample.cfg并命名为zoo.cfg)</p>
+<ul>
+<li><p>输入命令：</p>
+<p><code>vi /opt/zookeeper-3.4.12/conf/zoo.cfg</code></p>
+</li>
+<li><p>编辑填写内容如下:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tickTime = 2000</span><br><span class="line">dataDir = /opt/zookeeper-3.4.12/data</span><br><span class="line">dataLogDir = /opt/zookeeper-3.4.12/logs</span><br><span class="line">tickTime = 2000</span><br><span class="line">clientPort = 2181</span><br><span class="line">initLimit = 5</span><br><span class="line">syncLimit = 2</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ZooKeeper操作"><a href="#ZooKeeper操作" class="headerlink" title="ZooKeeper操作"></a>ZooKeeper操作</h4><ul>
+<li><p><strong>启动服务</strong></p>
+<ul>
+<li><p><code>/opt/zookeeper-3.4.12/bin/zkServer.sh start</code></p>
+</li>
+<li><p>响应</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /opt/zookeeper-3.4.12/bin/../conf/zoo.cfg</span><br><span class="line">Starting zookeeper ... STARTED</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>连接服务</strong></p>
+<ul>
+<li><p><code>/opt/zookeeper-3.4.12/bin/zkCli.sh</code></p>
+</li>
+<li><p>响应</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Connecting to localhost:2181</span><br><span class="line">2017-08-22 16:43:05,954 [myid:] - INFO  [main:Environment@100] - Client environment:zookeeper.version=3.4.12-1757313, built on 08/23/2016 06:50 GMT</span><br><span class="line">2017-08-22 16:43:05,958 [myid:] - INFO  [main:Environment@100] - Client environment:host.name=node1</span><br><span class="line">2017-08-22 16:43:05,958 [myid:] - INFO  [main:Environment@100] - Client environment:java.version=1.8.0_144</span><br><span class="line">2017-08-22 16:43:05,967 [myid:] - INFO  [main:Environment@100] - Client environment:java.vendor=Oracle Corporation</span><br><span class="line">2017-08-22 16:43:05,967 [myid:] - INFO  [main:Environment@100] - Client environment:java.home=/usr/lib/jvm/jre</span><br><span class="line">2017-08-22 16:43:05,967 [myid:] - INFO  [main:Environment@100] - Client environment:java.class.path=/opt/zookeeper-3.4.12/bin/../build/classes:/opt/zookeeper-3.4.12/bin/../build/lib/*.jar:/opt/zookeeper-3.4.12/bin/../lib/slf4j-log4j12-1.6.1.jar:/opt/zookeeper-3.4.12/bin/../lib/slf4j-api-1.6.1.jar:/opt/zookeeper-3.4.12/bin/../lib/netty-3.10.5.Final.jar:/opt/zookeeper-3.4.12/bin/../lib/log4j-1.2.16.jar:/opt/zookeeper-3.4.12/bin/../lib/jline-0.9.94.jar:/opt/zookeeper-3.4.12/bin/../zookeeper-3.4.12.jar:/opt/zookeeper-3.4.12/bin/../src/java/lib/*.jar:/opt/zookeeper-3.4.12/bin/../conf:.:/lib/jvm/lib:/lib/jvm/jre/lib</span><br><span class="line">2017-08-22 16:43:05,967 [myid:] - INFO  [main:Environment@100] - Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib</span><br><span class="line">2017-08-22 16:43:05,967 [myid:] - INFO  [main:Environment@100] - Client environment:java.io.tmpdir=/tmp</span><br><span class="line">2017-08-22 16:43:05,967 [myid:] - INFO  [main:Environment@100] - Client environment:java.compiler=&lt;NA&gt;</span><br><span class="line">2017-08-22 16:43:05,967 [myid:] - INFO  [main:Environment@100] - Client environment:os.name=Linux</span><br><span class="line">2017-08-22 16:43:05,967 [myid:] - INFO  [main:Environment@100] - Client environment:os.arch=amd64</span><br><span class="line">2017-08-22 16:43:05,967 [myid:] - INFO  [main:Environment@100] - Client environment:os.version=3.10.0-514.26.2.el7.x86_64</span><br><span class="line">2017-08-22 16:43:05,968 [myid:] - INFO  [main:Environment@100] - Client environment:user.name=root</span><br><span class="line">2017-08-22 16:43:05,968 [myid:] - INFO  [main:Environment@100] - Client environment:user.home=/root</span><br><span class="line">2017-08-22 16:43:05,968 [myid:] - INFO  [main:Environment@100] - Client environment:user.dir=/opt/zookeeper-3.4.12</span><br><span class="line">2017-08-22 16:43:05,969 [myid:] - INFO  [main:ZooKeeper@438] - Initiating client connection, connectString=localhost:2181 sessionTimeout=30000 watcher=org.apache.zookeeper.ZooKeeperMain$MyWatcher@506c589e</span><br><span class="line">Welcome to ZooKeeper!</span><br><span class="line">2017-08-22 16:43:06,011 [myid:] - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@1032] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181. Will not attempt to authenticate using SASL (unknown error)</span><br><span class="line">JLine support is enabled</span><br><span class="line">2017-08-22 16:43:06,164 [myid:] - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@876] - Socket connection established to localhost/0:0:0:0:0:0:0:1:2181, initiating session</span><br><span class="line">2017-08-22 16:43:06,237 [myid:] - INFO  [main-SendThread(localhost:2181):ClientCnxn$SendThread@1299] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, sessionid = 0x15e091bf2020000, negotiated timeout = 30000</span><br><span class="line"></span><br><span class="line">WATCHER::</span><br><span class="line"></span><br><span class="line">WatchedEvent state:SyncConnected type:None path:null</span><br><span class="line"></span><br><span class="line">[zk: localhost:2181(CONNECTED) 0]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>服务状态</strong></p>
+<ul>
+<li><p><code>/opt/zookeeper-3.4.12/bin/zkServer.sh status</code></p>
+</li>
+<li><p>响应</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /opt/zookeeper-3.4.12/bin/../conf/zoo.cfg</span><br><span class="line">Mode: standalone</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>停止服务</strong></p>
+<ul>
+<li><p><code>/opt/zookeeper-3.4.12/bin/zkServer.sh stop</code></p>
+</li>
+<li><p>响应</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bin/zkServer.sh stop</span><br><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /opt/zookeeper-3.4.12/bin/../conf/zoo.cfg</span><br><span class="line">Stopping zookeeper ... STOPPED</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<p>至此 zookeeper 的安装就结束了;</p>
+<h4 id="zookeeper镜像安装"><a href="#zookeeper镜像安装" class="headerlink" title="zookeeper镜像安装"></a>zookeeper镜像安装</h4><p>docker镜像安装参考:<a href="https://segmentfault.com/a/1190000006907443" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006907443</a></p>
+<h4 id="zookeeper集群安装"><a href="#zookeeper集群安装" class="headerlink" title="zookeeper集群安装"></a>zookeeper集群安装</h4><p>zookeeper集群安装参见:<a href="https://segmentfault.com/a/1190000010807875" target="_blank" rel="noopener">https://segmentfault.com/a/1190000010807875</a></p>
+<h4 id="zookeeper配置文件描述"><a href="#zookeeper配置文件描述" class="headerlink" title="zookeeper配置文件描述"></a>zookeeper配置文件描述</h4><ul>
+<li><p>tickTime</p>
+<blockquote>
+<p>tickTime则是上述两个超时配置的基本单位，例如对于initLimit，其配置值为5，说明其超时时间为 2000ms * 5 = 10秒。</p>
+</blockquote>
+</li>
+<li><p>dataDir</p>
+<blockquote>
+<p>其配置的含义跟单机模式下的含义类似，不同的是集群模式下还有一个myid文件。myid文件的内容只有一行，且内容只能为1 - 255之间的数字，这个数字亦即上面介绍server.id中的id，表示zk进程的id。</p>
+</blockquote>
+</li>
+<li><p>dataLogDir</p>
+<blockquote>
+<p>如果没提供的话使用的则是dataDir。zookeeper的持久化都存储在这两个目录里。dataLogDir里是放到的顺序日志(WAL)。而dataDir里放的是内存数据结构的snapshot，便于快速恢复。为了达到性能最大化，一般建议把dataDir和dataLogDir分到不同的磁盘上，这样就可以充分利用磁盘顺序写的特性。</p>
+</blockquote>
+</li>
+<li><p>initLimit</p>
+<blockquote>
+<p>ZooKeeper集群模式下包含多个zk进程，其中一个进程为leader，余下的进程为follower,当follower最初与leader建立连接时，它们之间会传输相当多的数据，尤其是follower的数据落后leader很多。initLimit配置follower与leader之间建立连接后进行同步的最长时间</p>
+</blockquote>
+</li>
+<li><p>syncLimit</p>
+<blockquote>
+<p>配置follower和leader之间发送消息，请求和应答的最大时间长度。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="zookeeper文件夹主要目录介绍"><a href="#zookeeper文件夹主要目录介绍" class="headerlink" title="zookeeper文件夹主要目录介绍"></a>zookeeper文件夹主要目录介绍</h4><ul>
+<li><p>bin</p>
+<blockquote>
+<p>进入 bin目录会看到,zkCleanup.sh,zkCli.cmd,zkCli.sh,zkServer.cmd,zkServer.sh等等.主要的一些运行命令,其中 cmd结尾是在 windows上运行的命令,sh是在 linux/Mac上运行的命令</p>
+</blockquote>
+</li>
+<li><p>conf</p>
+<blockquote>
+<p>主要是存放配置文件,进入 conf目录会看到, configuration.xsl,log4j.properties和 zoo_sample.cfg文件,其中两个不做介绍,这里只关注zoo_sample.cfg,前面提到的将zoo_sample.cfg复制并重命名为zoo.cfg;</p>
+</blockquote>
+</li>
+<li><p>contrib</p>
+<blockquote>
+<p>附加的一些功能</p>
+</blockquote>
+</li>
+<li><p>dist-maven</p>
+<blockquote>
+<p>mvn 编译后的目录,pom文件,jar包等</p>
+</blockquote>
+</li>
+<li><p>docs</p>
+<blockquote>
+<p>存放文档的地方,index.html,或者 index.pdf</p>
+</blockquote>
+</li>
+<li><p>lib</p>
+<blockquote>
+<p>需要依赖的 jar包</p>
+</blockquote>
+</li>
+<li><p>recipes</p>
+<blockquote>
+<p>存放一些案例</p>
+</blockquote>
+</li>
+<li><p>src</p>
+<blockquote>
+<p>存放源码的地方</p>
+</blockquote>
+</li>
+</ul>
+<p><a href="https://github.com/haoxiaoyong1014/zookeeperGuide" target="_blank" rel="noopener">ZooKeeper分布式专题与Dubbo微服务入门</a></p>
+</div><iframe src="/donate/?AliPayQR= /img/AliPayQR.png&amp;WeChatQR=/img/WeChatQR.png&amp;GitHub=https://github.com/Kaiyuan/donate-page&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div class="tags"></div><div class="post-nav"><a class="next" href="/2019/08/03/2019/2019-08-01-enable/">注解驱动@Enable模块的使用</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank"><input type="search" name="word" maxlength="20" placeholder="Search"><input type="hidden" name="si" value="https://www.haoxiaoyong.cn"><input name="tn" type="hidden" value="bds"><input name="cl" type="hidden" value="3"><input name="ct" type="hidden" value="2097152"><input name="s" type="hidden" value="on"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Springboot编程思想读书笔记/">Springboot编程思想读书笔记</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/annotation/" style="font-size: 15px;">annotation</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/03/2019/ZooKeeper分布式专题(一) -- zookeeper安装以及介绍/">2019/ZooKeeper分布式专题(一) -- zookeeper安装以及介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/03/2019/2019-08-01-enable/">注解驱动@Enable模块的使用</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">郝小永.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
