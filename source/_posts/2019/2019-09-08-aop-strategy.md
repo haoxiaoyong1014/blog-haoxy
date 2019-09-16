@@ -8,6 +8,7 @@ date: 2019-09-08
 ---
 
  [演示案例代码](https://github.com/haoxiaoyong1014/springboot-examples/tree/master/strategy-aop)
+ 
 
 首先看下业务需求：
 
@@ -265,6 +266,9 @@ public class MessageMonitorHandler {
 
     @Autowired
     private MessageStrategyService messageStrategyService;
+    
+    @Autowired
+    private StringHttpMessageConverter converter;
 
 
     @Pointcut("@annotation(cn.haoxy.strategy.aop.annotation.MessageLog)")
@@ -277,6 +281,12 @@ public class MessageMonitorHandler {
 
         logger.info("start run doAround.....");
         Object obj = proceedingJoinPoint.proceed();//调用执行目标方法
+        //返回客户端结果
+        HttpServletResponse response = getHttpServletResponse();
+        HttpOutputMessage outputMessage = new ServletServerHttpResponse(response);
+        //converter.write(obj, MediaType.APPLICATION_JSON, outputMessage);
+        converter.write(obj.toString(),null, outputMessage);
+        shutdownResponse(response);
         //判断调用是否成功
         //省略判断  ......
         //如果调用成功
@@ -291,7 +301,7 @@ public class MessageMonitorHandler {
         //得到请求url
         String url = request.getServletPath();
         //根据url从MapCacheUtils.mapCaheInit中取出操作title,
-        // 这里是从test.json文件中读取的，当然也可以配置在数据库中
+        //这里是从test.json文件中读取的，当然也可以配置在数据库中
         String operatorLog = MapCacheUtils.mapCaheInit.get(url);
         //根据url取出对应的策略类,这里的url也就是和策略类上@Component注解的value值
         StrategyBase messageChild = messageStrategyService.run(url);
@@ -316,6 +326,24 @@ public class MessageMonitorHandler {
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
         return servletRequestAttributes.getRequest();
     }
+    
+    /**
+     * 获取 HttpServletResponse
+     */
+    private HttpServletResponse getHttpServletResponse() {
+        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
+        return servletRequestAttributes.getResponse();
+    }
+    
+    /**
+     * 关流
+     * @param response
+     * @throws IOException
+     */
+     private void shutdownResponse(HttpServletResponse response) throws IOException {
+         response.getOutputStream().close();
+     }
 }
 
 ```
