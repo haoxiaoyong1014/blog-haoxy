@@ -3,7 +3,6 @@ layout: post
 title: Redis专题(四)--使用redis做mybatis的二级缓存
 category: Redis专题
 tags: redis
-toc: true
 date: 2019-09-15
 ---
 

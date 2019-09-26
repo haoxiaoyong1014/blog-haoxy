@@ -7,6 +7,8 @@ toc: true
 date: 2019-09-14
 ---
 
+<meta name="referrer" content="no-referrer" />
+
 #### 复习要点
 
 * 为什么使用redis
@@ -30,7 +32,7 @@ date: 2019-09-14
 
 如下图所示，我们碰到需要执行耗时特别久，且结果不频繁变动的SQL,就特别适合将运行结果放入缓存，这样，后面的请求就去缓存中读取，使得请求能够迅速响应。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/DmibiaFiaAI4B1qSviae9BGFFmz5P1Xdw6Pnj6PtibHwpfnDV0If0jZoF2QdicflEfXqT6jgykQcHuQTpvQoghvYhcWA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image.png](https://upload-images.jianshu.io/upload_images/15181329-cf45d2c82a5e5433.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 看到这里是不是想到了mybatis的二级缓存，实现mybatis的二级缓存方式有：<a href="https://github.com/haoxiaoyong1014/springboot-examples/tree/master/springboot-mybatis-myehcache">使用EhcacheCache做二级缓存</a>,和<a href="https://github.com/haoxiaoyong1014/springboot-redis-examples/tree/master/springboot-mybatis-redis-cache">使用redis做二级缓存</a>；
 
@@ -38,7 +40,7 @@ date: 2019-09-14
 
 如下图所示：在大并发的情况下，所有的请求直接访问数据库，数据库会出现链接异常，这个时候就需要使用redis做一个缓冲操作，让请求先访问到redis,而不是直接访问数据库。
 
-![](https://mmbiz.qpic.cn/mmbiz_png/DmibiaFiaAI4B1qSviae9BGFFmz5P1Xdw6Pn9qLibiahZO3ZLACyDLoAm7d69vyy9u6M8CQqH9JsNPpN4HymibicmKaYNg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image.png](https://upload-images.jianshu.io/upload_images/15181329-37a0609bf00a6066.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 在这里也可以说一说redis的持久化；
 
@@ -68,7 +70,7 @@ date: 2019-09-14
 
 I/O多路复用机制:分配单个线程，通过跟踪每个I/O流的状态来管理多个I/O流
 
-![](https://mmbiz.qpic.cn/mmbiz_png/DmibiaFiaAI4B1qSviae9BGFFmz5P1Xdw6PnNziadaf5biaVghVV3FjRaJ5ZloQoiaDeT5yU6UVzlhoFZksWIRjkvs7Tg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![image.png](https://upload-images.jianshu.io/upload_images/15181329-932dac084b29697c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 参照上图,简单来说，就是我们的redis-cli在操作的时候，会产生具有不同事件类型的socket。在服务器端，有一段I/O多路复用程序，将其置入队列之中。然后，文件事件分配器，依次去队列中取，转发到不同的事件处理器中；
 

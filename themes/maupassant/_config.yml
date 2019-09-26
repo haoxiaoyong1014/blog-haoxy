@@ -17,12 +17,12 @@ gitalk:
   client_secret: 'e88fcfeb88f7ecd2d01fd9175c2bd986866c33c0'
   admin:  ## Github repo owner and collaborators, only these guys can initialize github issues.
 valine: ## https://valine.js.org
-  enable: false ## If you want to use Valine comment system, please set the value to true.
-  appid: ## Your LeanCloud application App ID, e.g. pRBBL2JR4N7kLEGojrF0MsSs-gzGzoHsz
-  appkey: ## Your LeanCloud application App Key, e.g. tjczHpDfhjYDSYddzymYK1JJ
-  notify: false ## Mail notifier, see https://github.com/xCss/Valine/wiki/Valine-评论系统中的邮件提醒设置
-  verify: false ## Validation code.
-  placeholder: Just so so ## Comment box placeholders.
+  enable: true ## If you want to use Valine comment system, please set the value to true.
+  appid: gCstJNAHQ3kUvEtmcafwb6Hb-gzGzoHsz ## Your LeanCloud application App ID, e.g. pRBBL2JR4N7kLEGojrF0MsSs-gzGzoHsz
+  appkey: zwIGLTlqREnJhIexmIElRKmO ## Your LeanCloud application App Key, e.g. tjczHpDfhjYDSYddzymYK1JJ
+  notify: true ## Mail notifier, see https://github.com/xCss/Valine/wiki/Valine-评论系统中的邮件提醒设置
+  verify: true ## Validation code.
+  placeholder: 请在此输入你的留言 ## Comment box placeholders.
   avatar: 'mm' ## Gravatar type, see https://github.com/xCss/Valine/wiki/avatar-setting-for-valine
   pageSize: 10 ## Number of comments per page.
   guest_info: nick,mail,link ## Attributes of reviewers.
@@ -38,7 +38,7 @@ fancybox: true ## If you want to use fancybox please set the value to true.
 show_category_count: true ## If you want to show the count of categories in the sidebar widget please set the value to true.
 toc_number: true ## If you want to add list number to toc please set the value to true.
 shareto: false ## If you want to use the share button please set the value to true, and you must have hexo-helper-qrcode installed.
-busuanzi: true ## If you want to use Busuanzi page views please set the value to true.
+busuanzi: false ## If you want to use Busuanzi page views please set the value to true.
 wordcount: false ## If you want to display the word counter and the reading time expected to spend of each post please set the value to true, and you must have hexo-wordcount installed.
 widgets_on_small_screens: false ## Set to true to enable widgets on small screens.
 canvas_nest:
@@ -87,12 +87,14 @@ widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts
   - links
 
 links:
+  - title: GitHub
+    url: https://github.com/haoxiaoyong1014
+  - title: CSDN
+    url: https://blog.csdn.net/haoxiaoyong1014/article/list
   - title: despairyoke
     url: https://www.despairyoke.com/
-  #- title: site-name2
-    #url: http://www.example2.com/
-  #- title: site-name3
-    #url: http://www.example3.com/
+  - title: houtingbin
+    url: https://htb58.github.io/
 
 timeline:
   - num: 1
