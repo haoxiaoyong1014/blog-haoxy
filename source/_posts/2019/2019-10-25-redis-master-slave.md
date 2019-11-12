@@ -2,7 +2,7 @@
 layout: post
 title: Redis专题(六)--搭建Redis主从复制以及它的优缺点
 category: Redis专题
-tags: redis
+tags: Redis
 date: 2019-10-25
 ---
 

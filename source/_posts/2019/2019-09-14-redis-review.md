@@ -2,7 +2,7 @@
 layout: post
 title: Redis专题(三)--分布式Redis复习
 category: Redis专题
-tags: redis
+tags: Redis
 toc: true
 date: 2019-09-14
 ---

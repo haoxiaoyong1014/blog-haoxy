@@ -2,7 +2,7 @@
 layout: post
 title: Redis专题(二)--深入学习Redis持久化
 category: Redis专题
-tags: redis
+tags: Redis
 toc: true
 date: 2019-09-13
 ---

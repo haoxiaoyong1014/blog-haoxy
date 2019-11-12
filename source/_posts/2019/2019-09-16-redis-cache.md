@@ -2,7 +2,7 @@
 layout: post
 title: Redis专题(五)--EhcacheCache和Redis做mybatis二级缓存对比
 category: Redis专题
-tags: redis
+tags: Redis
 date: 2019-09-16
 ---
 

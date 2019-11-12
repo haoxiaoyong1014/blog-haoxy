@@ -2,7 +2,7 @@
 layout: post
 title: .yml .properties文件下的参数值替换
 category: Springboot
-tags: springboot
+tags: SpringBoot
 toc: true
 date: 2019-09-11
 ---

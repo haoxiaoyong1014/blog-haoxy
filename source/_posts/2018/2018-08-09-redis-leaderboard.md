@@ -2,7 +2,7 @@
 layout: post
 title: Redis专题(一)--根据Redis实现商品排行榜
 category: Redis专题
-tags: redis
+tags: Redis
 toc: true
 date: 2018-08-09
 ---
