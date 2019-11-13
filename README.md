@@ -67,4 +67,4 @@
 
 #### SpringBoot专题
 
-[SpringBoot专题集合](https://github.com/haoxiaoyong1014/springboot-examples)
+[SpringBoot专题汇总](https://github.com/haoxiaoyong1014/springboot-examples)
