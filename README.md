@@ -45,6 +45,8 @@
 
 [Netty(七) Netty 解决粘包拆包](https://haoxiaoyong.cn/2019/05/29/2019/2019-05-29-Netty7/)
 
+[基于Netty Spring Boot仿微信聊天项目](https://github.com/haoxiaoyong1014/chat-software)
+
 #### Zookeeper专题
 
 [ZooKeeper分布式专题(一) -- zookeeper安装以及介绍](https://haoxiaoyong.cn/2019/07/16/2019/2019-07-16-zookeeper1/)
