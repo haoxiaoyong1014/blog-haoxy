@@ -1,253 +1,41 @@
-# Maupassant
+### 待我代码编成,娶你为妻可好!
 
-[![Build Status](https://travis-ci.org/tufu9441/maupassant-hexo.svg?branch=master)](https://travis-ci.org/tufu9441/maupassant-hexo)   [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/tufu9441/maupassant-hexo/blob/master/LICENSE)
+#### [haoxiaoyong site](https://www.haoxiaoyong.cn)
 
-> 大道至简
+<a href="https://www.haoxiaoyong.cn" rel="nofollow"><img src="https://camo.githubusercontent.com/2900a1e1ff66156767900d09356d0985c8838dec/68747470733a2f2f7472617669732d63692e6f72672f74756675393434312f6d617570617373616e742d6865786f2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/tufu9441/maupassant-hexo.svg?branch=master" style="max-width:100%;"></a>
+<a href="https://github.com/haoxiaoyong1014"><img src="https://camo.githubusercontent.com/890acbdcb87868b382af9a4b1fac507b9659d9bf/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e737667" alt="GitHub license" data-canonical-src="https://img.shields.io/badge/license-MIT-blue.svg" style="max-width:100%;"></a>
 
-[Preview](https://www.haomwei.com)｜[中文文档](https://www.haomwei.com/technology/maupassant-hexo.html)
+#### Redis专题:
 
-A simple Hexo template with great performance on different devices, ported from a Typecho theme by [Cho](https://github.com/pagecho/maupassant/), forked and modified from [icylogic](https://github.com/icylogic/maupassant-hexo/).
+[Redis专题(一)--根据Redis实现商品排行榜](https://haoxiaoyong.cn/2018/08/09/2018/2018-08-09-redis-leaderboard/)
+[Redis专题(二)--深入学习Redis持久化](https://haoxiaoyong.cn/2019/09/13/2019/2019-09-13-redis-persistence/)
+[Redis专题(三)--分布式Redis复习](https://haoxiaoyong.cn/2019/09/14/2019/2019-09-14-redis-review/)
+[Redis专题(四)--使用redis做mybatis的二级缓存](https://haoxiaoyong.cn/2019/09/15/2019/2019-09-15-redis-mybatis/)
+[Redis专题(五)--EhcacheCache和Redis做mybatis二级缓存对比](https://haoxiaoyong.cn/2019/09/16/2019/2019-09-16-redis-cache/)
+[Redis专题(六)--搭建Redis主从复制以及它的优缺点](https://haoxiaoyong.cn/2019/10/25/2019/2019-10-25-redis-master-slave/)
 
-![template preview](http://ooo.0o0.ooo/2015/10/24/562b5be12177e.jpg
- "Maupassant template preview")
+#### Netty专题
 
-## Installation
-Install theme and renderers:
+[Netty(一) springboot整合Netty做心跳检测](https://haoxiaoyong.cn/2018/10/19/2018/2018-10-19-Netty1/)
+[Netty(二) springboot 整合netty编写时间服务器](https://haoxiaoyong.cn/2018/10/22/2018/2018-10-22-Netty2/)
+[Netty(三) Netty 之传输文件](https://haoxiaoyong.cn/2018/11/15/2018/2018-11-15-Netty3/)
+[Netty(四) Netty结合webSocket做聊天案例](https://haoxiaoyong.cn/2019/03/16/2019/2019-03-16-Netty4/)
+[Netty(五) 基于Netty手写 RPC](https://haoxiaoyong.cn/2019/05/27/2019/2019-05-27-Netty5/)
+[Netty(六) SpringBoot整合Netty并使用Protobuf进行数据传输](https://haoxiaoyong.cn/2019/05/28/2019/2019-05-28-Netty6/)
+[Netty(七) Netty 解决粘包拆包](https://haoxiaoyong.cn/2019/05/29/2019/2019-05-29-Netty7/)
 
-```shell
-$ git clone https://github.com/tufu9441/maupassant-hexo.git themes/maupassant
-$ npm install hexo-renderer-pug --save
-$ npm install hexo-renderer-sass --save
-```
+#### Zookeeper专题
+[ZooKeeper分布式专题(一) -- zookeeper安装以及介绍](https://haoxiaoyong.cn/2019/07/16/2019/2019-07-16-zookeeper1/)
+[ZooKeeper分布式专题(二) -- zookeeper应用场景及数据模型](https://haoxiaoyong.cn/2019/07/18/2019/2019-07-18-zookeeper2/)
+[ZooKeeper分布式专题(三) --zookeeper客户端命令行学习](https://haoxiaoyong.cn/2019/07/20/2019/2019-07-20-zookeeper3/)
+[ZooKeeper分布式专题(四)--使用ZooKeeper原生Java API进行客户端开发](https://haoxiaoyong.cn/2019/07/24/2019/2019-07-24-zookeeper4/)
+[ZooKeeper分布式专题(五)-- Apache Curator客户端的使用](https://haoxiaoyong.cn/2019/07/28/2019/2019-07-28-zookeeper5/)
+[ZooKeeper分布式专题(六)-- Dubbo入门到重构服务](https://haoxiaoyong.cn/2019/08/13/2019/2019-08-13-zookeeper6/)
+[ZooKeeper分布式专题(七)-- 使用zookeeper实现分布式锁](https://haoxiaoyong.cn/2019/08/20/2019/2019-08-20-zookeeper7/)
 
-Then change your `theme` setting in `_config.yml` to `maupassant`.
+#### JVM专题
+[深入学习JVM(一) -- 理解java虚拟机内存模型](https://haoxiaoyong.cn/2019/11/10/2019/2019-11-10-jvm/)
 
-## Configuration
-Default config:
+#### SpringBoot专题
 
-```YAML
-disqus: ## Your disqus_shortname, e.g. username
-uyan: ## Your uyan_id. e.g. 1234567
-livere: ## Your livere data-uid, e.g. MTAyMC8zMDAxOC78NTgz
-changyan: ## Your changyan appid, e.g. cyrALsXc8
-changyan_conf: ## Your changyan conf, e.g. prod_d8a508c2825ab57eeb43e7c69bba0e8b
-gitment:
-  enable: false ## If you want to use Gitment comment system please set the value to true.
-  owner: ## Your GitHub ID, e.g. username
-  repo: ## The repository to store your comments, make sure you're the repo's owner, e.g. imsun.github.io
-  client_id: ## GitHub client ID, e.g. 75752dafe7907a897619
-  client_secret: ## GitHub client secret, e.g. ec2fb9054972c891289640354993b662f4cccc50
-gitalk:
-  enable: false ## If you want to use Gitment comment system please set the value to true.
-  owner:  ## Your GitHub ID, e.g. username
-  repo:  ## The repository to store your comments, make sure you're the repo's owner, e.g. gitalk.github.io
-  client_id:  ## GitHub client ID, e.g. 75752dafe7907a897619
-  client_secret:  ## GitHub client secret, e.g. ec2fb9054972c891289640354993b662f4cccc50
-  admin:  ## Github repo owner and collaborators, only these guys can initialize github issues.
-valine: ## https://valine.js.org
-  enable: false ## If you want to use Valine comment system, please set the value to true.
-  appid: ## Your LeanCloud application App ID, e.g. pRBBL2JR4N7kLEGojrF0MsSs-gzGzoHsz
-  appkey: ## Your LeanCloud application App Key, e.g. tjczHpDfhjYDSYddzymYK1JJ
-  notify: false ## Mail notifier, see https://github.com/xCss/Valine/wiki/Valine-评论系统中的邮件提醒设置
-  verify: false ## Validation code.
-  placeholder: Just so so ## Comment box placeholders.
-  avatar: 'mm' ## Gravatar type, see https://github.com/xCss/Valine/wiki/avatar-setting-for-valine
-  pageSize: 10 ## Number of comments per page.
-  guest_info: nick,mail,link ## Attributes of reviewers.
-
-google_search: true ## Use Google search, true/false.
-baidu_search: false ## Use Baidu search, true/false.
-swiftype: ## Your swiftype_key, e.g. m7b11ZrsT8Me7gzApciT
-tinysou: ## Your tinysou_key, e.g. 4ac092ad8d749fdc6293
-self_search: false ## Use a jQuery-based local search engine, true/false.
-google_analytics: ## Your Google Analytics tracking id, e.g. UA-42425684-2
-baidu_analytics: ## Your Baidu Analytics tracking id, e.g. 8006843039519956000
-fancybox: true ## If you want to use fancybox please set the value to true.
-show_category_count: false ## If you want to show the count of categories in the sidebar widget please set the value to true.
-toc_number: true ## If you want to add list number to toc please set the value to true.
-shareto: false ## If you want to use the share button please set the value to true, and you must have hexo-helper-qrcode installed.
-busuanzi: false ## If you want to use Busuanzi page views please set the value to true.
-wordcount: false ## If you want to display the word counter and the reading time expected to spend of each post please set the value to true, and you must have hexo-wordcount installed.
-widgets_on_small_screens: false ## Set to true to enable widgets on small screens.
-canvas_nest:
-  enable: false ## If you want to use dynamic background please set the value to true, you can also fill the following parameters to customize the dynamic effect, or just leave them blank to keep the default effect.
-  color: ## RGB value of the color, e.g. "100,99,98"
-  opacity: ## Transparency of lines, e.g. "0.7"
-  zIndex: ## The z-index property of the background, e.g. "-1"
-  count: ## Quantity of lines, e.g. "150"
-donate:
-  enable: false ## If you want to display the donate button after each post, please set the value to true and fill the following items on your need. You can also enable donate button in a page by adding a "donate: true" item to the front-matter.
-  github: ## GitHub URL, e.g. https://github.com/Kaiyuan/donate-page
-  alipay_qr: ## Path of Alipay QRcode image, e.g. /img/AliPayQR.png
-  wechat_qr: ## Path of Wechat QRcode image, e.g. /img/WeChatQR.png
-  btc_qr: ## Path of Bitcoin QRcode image, e.g. /img/BTCQR.png
-  btc_key: ## Bitcoin key, e.g. 1KuK5eK2BLsqpsFVXXSBG5wbSAwZVadt6L
-  paypal_url: ## Paypal URL, e.g. https://www.paypal.me/tufu9441
-post_copyright:
-  enable: false ## If you want to display the copyright info after each post, please set the value to true and fill the following items on your need.
-  author: ## Your author name, e.g. tufu9441
-  copyright_text: ## Your copyright text, e.g. The author owns the copyright, please indicate the source reproduced.
-
-menu:
-  - page: home
-    directory: .
-    icon: fa-home
-  - page: archive
-    directory: archives/
-    icon: fa-archive
-  - page: about
-    directory: about/
-    icon: fa-user
-  - page: rss
-    directory: atom.xml
-    icon: fa-rss
-
-widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts, rencent_comments and links.
-  - search
-  - category
-  - tag
-  - recent_posts
-  - recent_comments
-  - links
-
-links:
-  - title: site-name1
-    url: https://www.despairyoke.com/
-  - title: site-name2
-    url: http://www.example2.com/
-  - title: site-name3
-    url: http://www.example3.com/
-
-timeline:
-  - num: 1
-    word: 2014/06/12-Start
-  - num: 2
-    word: 2014/11/29-XXX
-  - num: 3
-    word: 2015/02/18-DDD
-  - num: 4
-    word: More
-
-# Static files
-js: js
-css: css
-
-# Theme version
-version: 0.0.0
-```
-- disqus - [Disqus](https://disqus.com) shortname
-- uyan - [Uyan](http://www.uyan.cc) id
-- livere - [LiveRe](https://livere.com) data-uid
-- changyan - [Changyan](http://changyan.kuaizhan.com) appid
-- gitment - [Gitment](https://github.com/imsun/gitment) comment system
-- gitalk - [Gitalk](https://github.com/gitalk/gitalk) comment system
-- valine - [Valine](https://valine.js.org) comment system
-- google_search - Default search engine
-- baidu_search - Search engine for users in China
-- swiftype - [Swiftype Search](https://swiftype.com) key
-- tinysou - [Tiny Search](http://tinysou.com) key
-- self_search - A jQuery-based [local search engine](http://hahack.com/codes/local-search-engine-for-hexo), with the dependency on the plugin [hexo-generator-search](https://github.com/PaicHyperionDev/hexo-generator-search)
-- google_analytics - [Google Analytics](https://www.google.com/analytics/) tracking id
-- baidu_analytics - [Baidu Analytics](http://tongji.baidu.com) tracking id
-- fancybox - Enable [Fancybox](http://fancyapps.com/fancybox/)
-- show_category_count - Show the count of categories in the sidebar widget
-- toc_number - Show the list number of toc
-- shareto - Enable share button, with the dependency on the plugin [hexo-helper-qrcode](https://github.com/yscoder/hexo-helper-qrcode)
-- busuanzi - Enable [Busuanzi](http://busuanzi.ibruce.info) page views
-- wordcount - Enable [hexo-wordcount](https://github.com/willin/hexo-wordcount) of each post
-- widgets_on_small_screens - Show the widgets at the bottom of small screens
-- [canvas_nest](https://github.com/hustcc/canvas-nest.js) - Enable dynamic background
-- donate - Enable donate button after each post
-- post_copyright - Enable copyright info after each post
-- menu - Customize your menu of pages here, just follow the format of existied items. Don't forget to create corresponding folders inlcuding `index.md` in `source` folder to ensure the pages will correctly display. [FontAwesome](http://fontawesome.io) icon fonts have been integrated, and you can choose other icons which you like [here](http://fontawesome.io/icons/) and use them according to the instruction.
-- widgets - Choose and arrange the widgets in sidebar here.
-- links - Edit your blogroll here.
-- timeline - Show a timeline of the website by setting `layout: timeline` of a page.
-- Static files - Static files directory, for convenience of CDN usage.
-- Theme version - For automatic refresh of static files on CDN.
-
-## Features
-#### Logo
-You can set a **favicon.ico** for your website, please put it into  `source` folder of hexo directory, recommended size: 32px*32px.
-
-You can add a website logo for apple devices, please put an image named **apple-touch-icon.png** into `source` folder of hexo directory, recommended size: 114px*114px.
-
-#### Abstract
-You can control the abstract of a post shown at index, by either filling a `description:` item in `front-matter` of the `post.md`, or just inserting a `<!--more-->` before your hidden content.
-
-#### Page
-Create folders inlcuding `index.md` in `source` folder to add pages, and add a `layout: page` in `front-matter` of `index.md`. If you need a single column page without sidebar, just set `layout: single-column` instead of `layout: page`.
-
-#### Table of Contents
-TOC in a post can be enabled by adding a `toc: true` item in `front-matter`.
-
-#### Comments
-Comment feature of each post and page can be enabled (default) and disabled by adding a `comments: true` or a `comments: false` in `front-matter`. This could be useful when you want comment feature for a guestbook page, but don't want comment feature for a about page.
-
-#### Syntax Highlighting
-Highlighted code showcase is supported, please set the `highlight` option in `_config.yml` of hexo directory like this:
-
-```YAML
-highlight:
-  enable: true
-  auto_detect: true
-  line_number: true
-  tab_replace:
-```
-
-#### Math Equation
-Add
-```YAML
-mathjax: true
-```
-in Hexo's `_config.yml`.
-
-In the post which you would like to use math equation, add `mathjax: true` in the `front-matter`. For example:
-
-```YAML
-title: Test Math
-date: 2016-04-05 14:16:00
-categories: math
-mathjax: true
----
-```
-The default math delimiters are `$$...$$` and `\\[...\\]` for displayed mathematics,
-and `$...$` and `\\(...\\)` for in-line mathematics.
-
-However, if your post contains dollar signs (`$`), and they appear often in non-mathematical parts, in other words, you want to use `$` as dollar sign not inline math delimiter, please add
-
-```YAML
-mathjax2: true
-```
-in Hexo's `_config.yml` instead of `mathjax: true`. Correspondingly, add `mathjax2: true` to the `front-matter` of the post in which
-you would like to use math equation.
-
-See the [example](http://zhongpu.info/2016/05/06/Mathjax%20and%20Hexo/).
-
-#### Languages
-Seven languages are available for this theme currently: Simplified Chinese (zh-CN), Traditional Chinese (zh-TW), English (en), French (fr-FR), German (de-DE), Korean (ko) and Spanish (es-ES). Contributions of translating to other languages will be highly appreciated.
-
-## Solutions
-- Check whether your Terminal's current directory is in hexo's root directory which contains `source/`, `themes/`, etc.
-
-- If you have any trouble in using this theme, please feel free to open an [issue](https://github.com/tufu9441/maupassant-hexo/issues).
-
-## Browser Support
-![Imgur](http://i.imgur.com/iO9L5ty.png)
-
-## Contributing
-All kinds of contributions (enhancements, new features, documentation & code improvements, issues & bugs reporting) are welcome.
-
-Looking forward to your pull request.
-
-## Acknowledgements
-Thanks for all the [contributors](https://github.com/tufu9441/maupassant-hexo/graphs/contributors) of this theme.
-.
-## Maupassant on other platforms:
-+ Typecho：https://github.com/pagecho/maupassant/
-+ Octopress：https://github.com/pagecho/mewpassant/
-+ Farbox：https://github.com/pagecho/Maupassant-farbox/
-+ Wordpress：https://github.com/iMuFeng/maupassant/
-+ Ghost: https://github.com/LjxPrime/maupassant/
-+ Hugo: https://github.com/rujews/maupassant-hugo/
-
+[SpringBoot专题集合](https://github.com/haoxiaoyong1014/springboot-examples)
