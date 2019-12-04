@@ -31,6 +31,8 @@
 
 [Redis专题(六)--搭建Redis主从复制以及它的优缺点](https://haoxiaoyong.cn/2019/10/25/2019/2019-10-25-redis-master-slave/)
 
+[Redis专题(七)--基于Sentinel（哨兵）搭建实现Redis高可用集群](https://haoxiaoyong.cn/2019/10/29/2019/2019-12-03-redis-master-slave/)
+
 #### Netty专题
 
 [Netty(一) springboot整合Netty做心跳检测](https://haoxiaoyong.cn/2018/10/19/2018/2018-10-19-Netty1/)
@@ -80,3 +82,4 @@
 [Spring源码(二)SpringIOC初始化过程源码分析-基于注解方式](https://haoxiaoyong.cn/2019/12/01/2019/2019-12-01-spring1/)
 
 [Spring源码(三)SpringIOC初始化过程-完成Bean的初始化](https://haoxiaoyong.cn/2019/12/02/2019/2019-12-01-spring2/)
+
