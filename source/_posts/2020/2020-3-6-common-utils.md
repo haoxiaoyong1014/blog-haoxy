@@ -1,0 +1,153 @@
+---
+layout: post
+title: 别人那没有的工具类
+category: util
+tags: util
+date: 2020-03-6
+---
+
+<meta name="referrer" content="no-referrer" />
+
+#### 检查一个对象中的参数值是否为空
+
+工作中常用的工具类整理
+
+```java
+public class ValidUtils {
+
+    public static <T> JSONObject inspect(T t, String requireParams) {
+        JSONObject jsonResult = new JSONObject();
+        jsonResult.put("code", CommonResultEnum.CHECK_VALID.code());
+        String jsonString = JSONObject.toJSONString(t);
+        JSONObject jsonObject = JSONObject.parseObject(jsonString);
+        String[] params = requireParams.split(",");
+        for (String param : params) {
+            if (jsonObject.getString(param) == null || jsonObject.getString(param).isEmpty()) {
+                jsonResult.put("code", CommonResultEnum.CHECK_VALID_ERROR.code());
+                jsonResult.put("msg", String.format(CommonResultEnum.CHECK_VALID_ERROR.message(), param));
+                break;
+            }
+        }
+        return jsonResult;
+    }
+}
+
+```
+
+测试：
+
+```java
+    @Test
+    public void testValidUtils() {
+        User user = new User();
+        user.setUsername("张思睿");
+        user.setPassword("123456");
+        //user.setAge(23);
+        JSONObject jsonResult = ValidUtils.inspect(user, "username,password,age");
+        System.out.println(jsonResult.get("code") + ": " + jsonResult.get("msg"));
+
+    }
+```
+
+打印：
+
+`20201: age参数为空`
+
+#### Bean以及集合之间浅拷贝
+
+```java
+public class ConverterUtils {
+
+    public static <V, C> C convert(V v, Class<C> beanClass) {
+        if (ObjectUtils.isEmpty(v)) {
+            return null;
+        } else {
+            C instance = null;
+            try {
+                instance = beanClass.newInstance();
+                BeanUtils.copyProperties(v, instance);
+            } catch (Exception var4) {
+                var4.printStackTrace();
+            }
+
+            return instance;
+        }
+    }
+
+    public static <V, C> List<C> convertList(List<V> vList, Class<C> beanClass) {
+        List<C> cList = new ArrayList();
+        if (CollectionUtils.isEmpty(vList)) {
+            return cList;
+        } else {
+            vList.stream().forEach((v) -> {
+                cList.add(convert(v, beanClass));
+            });
+            return cList;
+        }
+    }
+}
+
+```
+
+测试convert方法：
+
+```java
+	@Test
+    public void testConverterByConverterUtils() {
+        User user = User.builder()
+                .username("张思睿").password("123456")
+                .age(25).gender("男").hobby("女")
+                .build();
+        Persion persion = ConverterUtils.convert(user, Persion.class);
+        System.out.println(persion);
+    }
+```
+
+打印：
+
+```json
+Persion(username=张思睿, age=25, gender=男, hobby=女)
+```
+
+测试convertList方法：
+
+```java
+private static List<User> users = new ArrayList<>();
+
+    static {
+        User user = User.builder()
+                .username("张兔").password("123456")
+                .age(25).gender("女").hobby("男")
+                .build();
+        User user2 = User.builder()
+                .username("张思睿").password("123456")
+                .age(25).gender("男").hobby("女")
+                .build();
+        users.add(user);
+        users.add(user2);
+    }
+
+    /**
+     * 测试 converterList方法
+     * 具体实现 {@link ConverterUtils}
+     */
+    @Test
+    public void testConverterListByConverterUtils() {
+        List<Persion> persions = ConverterUtils.convertList(users, Persion.class);
+        persions.stream().forEach((persion) -> {
+            System.out.println(persion);
+        });
+    }
+```
+
+打印：
+
+```json
+Persion(username=张兔, age=25, gender=女, hobby=男)
+Persion(username=张思睿, age=25, gender=男, hobby=女)
+```
+
+持续更新中。。。。
+
+具体代码地址：https://github.com/haoxiaoyong1014/common-utils
+
