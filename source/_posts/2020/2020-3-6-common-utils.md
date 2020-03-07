@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 别人那没有的工具类
-category: util
-tags: util
+category: utils
+tags: utils
 date: 2020-03-6
 ---
 
