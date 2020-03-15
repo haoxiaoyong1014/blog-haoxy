@@ -8,6 +8,10 @@ date: 2020-03-6
 
 <meta name="referrer" content="no-referrer" />
 
+[检查一个对象中的参数值是否为空](#检查一个对象中的参数值是否为空)
+[Bean以及集合之间浅拷贝](#Bean以及集合之间浅拷贝)
+[List集合根据单多属性条件去重](#List集合根据单或多属性条件去重)
+
 #### 检查一个对象中的参数值是否为空
 
 工作中常用的工具类整理
@@ -146,8 +150,97 @@ private static List<User> users = new ArrayList<>();
 Persion(username=张兔, age=25, gender=女, hobby=男)
 Persion(username=张思睿, age=25, gender=男, hobby=女)
 ```
+#### List集合根据单或多属性条件去重
+```java
+public class UniqueUtils {
+
+    public static <T> List<T> distinctByKeys(List<T> t, String... fields) {
+        Stream<T> tStream = t.stream().filter(new Predicate<T>() {
+            Map<Object, Boolean> seen = new ConcurrentHashMap<>(10);
+
+            @Override
+            public boolean test(T t) {
+                boolean flag = false;
+                try {
+                    for (String field : fields) {
+                        Field declaredField = t.getClass().getDeclaredField(field);
+                        declaredField.setAccessible(true);
+                        flag = seen.putIfAbsent(declaredField.get(t), Boolean.TRUE) == null;
+                    }
+                } catch (NoSuchFieldException | IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+                return flag;
+            }
+        });
+        return tStream.collect(Collectors.toList());
+    }
+}
+```
+**测试根据单个属性去重：**
+```java
+public class UniqueUtilsTest {
+
+    private static List<Persion> list = new ArrayList<>();
+
+    static {
+        list.add(new Persion("张思睿", 23));
+        list.add(new Persion("里斯", 24));
+        list.add(new Persion("王武", 25));
+        list.add(new Persion("张思睿", 26));
+    }
+
+    /**
+     * 测试根据一个属性去重
+     */
+    @Test
+    public void distinctByKeyTest() {
+        UniqueUtils.distinctByKeys(list, "username").forEach(
+                l -> System.out.println(l.getUsername() + "," + l.getAge()));
+    }
+}
+```
+**打印结果：**
+```json
+张思睿,23
+里斯,24
+王武,25
+```
+**测试根据多个属性去重**
+```java
+public class UniqueUtilsTest {
+
+    private static List<Persion> list2 = new ArrayList<>();
+
+    static {
+        list2.add(new Persion("张思睿", 23));
+        list2.add(new Persion("里斯", 24));
+        list2.add(new Persion("王武", 25));
+        list2.add(new Persion("张思睿", 26));
+    }
+    /**
+     * 测试根据多个属性去重
+     */
+    @Test
+    public void distinctByKeysTest() {
+        UniqueUtils.distinctByKeys(list2, "username","age").forEach(
+                l -> System.out.println(l.getUsername() + "," + l.getAge()));
+    }
+}
+
+```
+**测试结果：**
+```json
+张思睿,23
+里斯,24
+王武,25
+张思睿,26
+```
+注意集合中的对象属性值；在`distinctByKeys()`方法中传入了两个属性，当这两个属性的值都一样的时候才会去重；
 
 持续更新中。。。。
 
 具体代码地址：https://github.com/haoxiaoyong1014/common-utils
+[备用地址](https://github.com/haoxiaoyong1014/common-utils)
+欢迎star!
 
