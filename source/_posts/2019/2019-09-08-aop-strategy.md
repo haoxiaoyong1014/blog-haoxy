@@ -1,8 +1,8 @@
 ---
 layout: post
 title: AOP+自定义注解+策略模式 记录操作日志，避免过多的if else
-category: AOP+策略模式
-tags: 设计模式
+category: 技术杂谈
+tags: 技术杂谈
 toc: true
 date: 2019-09-08
 ---

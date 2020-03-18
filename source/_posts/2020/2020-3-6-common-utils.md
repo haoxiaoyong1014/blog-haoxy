@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 别人那没有的工具类
-category: utils
-tags: utils
+category: 技术杂谈
+tags: 技术杂谈
 date: 2020-03-6
 ---
 
