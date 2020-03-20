@@ -1,7 +1,7 @@
 ---
 layout: post
 title: springboot整合分布式任务调度xxl-job
-category: Springboot
+category: SpringBoot
 tags: SpringBoot
 date: 2020-01-13
 ---
