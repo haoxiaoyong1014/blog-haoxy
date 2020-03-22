@@ -5,7 +5,7 @@
 <a href="https://www.haoxiaoyong.cn" rel="nofollow"><img src="https://camo.githubusercontent.com/2900a1e1ff66156767900d09356d0985c8838dec/68747470733a2f2f7472617669732d63692e6f72672f74756675393434312f6d617570617373616e742d6865786f2e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/tufu9441/maupassant-hexo.svg?branch=master" style="max-width:100%;"></a>
 <a href="https://github.com/haoxiaoyong1014"><img src="https://camo.githubusercontent.com/890acbdcb87868b382af9a4b1fac507b9659d9bf/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d626c75652e737667" alt="GitHub license" data-canonical-src="https://img.shields.io/badge/license-MIT-blue.svg" style="max-width:100%;"></a>
 
-| :globe_with_meridians: | | | | | |
+| :globe_with_meridians: | :recycle: | :art: | :beers: |  :see_no_evil: | :seedling: |
 |  ----  | ---- | ---- |----|----| ----|
 | [Redis专题](#Redis专题) |[Netty专题](#Netty专题)| [Zookeeper专题](#Zookeeper专题)| [JVM专题](#JVM专题)|[SpringBoot专题](#SpringBoot专题)|[Spring源码](#Spring源码)
 | [SpringCloud专题](#SpringCloud专题)| [面试专题](#面试专题)
