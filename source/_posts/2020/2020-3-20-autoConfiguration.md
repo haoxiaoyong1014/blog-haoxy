@@ -460,4 +460,4 @@ public class OkController {
 
 <img src="https://upload-images.jianshu.io/upload_images/15181329-9defb376b159b72a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" style="zoom:80%;" />
 
-这个例子只是展示一下逻辑效果，后面有时间写一个真正的业务场景！
+这个例子只是展示一下逻辑效果，这篇[使用自定义Starter 并制作一个简单的图床](https://haoxiaoyong.cn/2020/04/02/2020/2020-4-2-oss-autoConfiguration/)
