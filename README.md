@@ -67,6 +67,8 @@
 
 [SpringBoot专题汇总](https://github.com/haoxiaoyong1014/springboot-examples)
 
+[SpringBoot自定义starter 添加第三方组件(阿里云OSS)](https://github.com/haoxiaoyong1014/oss-spring-boot-project)
+
 #### Spring源码
 
 [Spring源码(一)构建Spring5.x源码](https://haoxiaoyong.cn/2019/11/30/2019/2019-11-30-build-spring/)
