@@ -85,6 +85,8 @@
 
 [谈谈美股熔断和服务熔断Hystrix](https://haoxiaoyong.cn/2020/03/18/2020/2020-3-18-hxstrix/)
 
+[使用okhttp替换Feign默认Client](https://github.com/haoxiaoyong1014/springcloud-examples/tree/master/feign-consumer-service)
+
 
 #### 面试专题
 
