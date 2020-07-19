@@ -1,6 +1,6 @@
 ---
 layout: post
-title: S关于使用this.getClass().getResource()获取文件时遇到的坑
+title: 关于使用this.getClass().getResource()获取文件时遇到的坑
 category: 技术杂谈
 tags: 技术杂谈
 date: 2020-07-19
