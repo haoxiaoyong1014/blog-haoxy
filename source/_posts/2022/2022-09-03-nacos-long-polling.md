@@ -27,12 +27,12 @@ date: 2022-09-03
 **首先生成配置服务类ConfigService**
 
 ```
-         String serverAddr = "localhost";
-         String dataId = "dynamic-thread-pool-demo";
-         String group = "DEFAULT_GROUP";
-         Properties properties = new Properties();
-         properties.put("serverAddr", serverAddr);
-         ConfigService configService = NacosFactory.createConfigService(properties);
+String serverAddr = "localhost";
+String dataId = "dynamic-thread-pool-demo";
+String group = "DEFAULT_GROUP";
+Properties properties = new Properties();
+properties.put("serverAddr", serverAddr);
+ConfigService configService = NacosFactory.createConfigService(properties);
 ```
 
 通过反射创建NacosConfigService实例
